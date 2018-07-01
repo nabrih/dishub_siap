@@ -1,0 +1,36 @@
+status kepegawaian {pns, non pns}
+
+pr:
+	manage menu
+	
+	nama awal dan nama akhir diganti jadi nama lengkap
+
+	tambah upload image(foto, foto_ttd)
+	foto_ttd = nama_lengkap+_+nrk.png
+
+
+lokasi OK
+	pakai combo box (ga pake table)
+	LIST:	PG - pulogadung
+			UM - UJUNG MENTENG
+			CL - CILINCING
+			KA - KEDAUNG ANGKE
+
+list_menu
+	url
+	icon fa
+	aktif
+
+turun versi ke 3.0
+
+NAMA aplikasi: SIAP (sistem administrasi PENGUJIAN KENDARAAN BERMOTOR)
+
+
+nama awal dan nama akhir diganti jadi nama lengkap
+
+tambah upload image(foto, foto_ttd)
+foto_ttd = nama_lengkap+_+nrk.png
+
+sub menu
+
+NAMA DB: db_silanis
