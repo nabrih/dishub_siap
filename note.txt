@@ -1,4 +1,5 @@
 status kepegawaian {pns, non pns}
+bahasa indo
 
 pr:
 	manage menu
