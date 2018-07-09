@@ -21,7 +21,7 @@ CREATE TABLE IF NOT EXISTS `access` (
   PRIMARY KEY (`access_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=latin1;
 
--- Dumping data for table db_silanis.access: ~12 rows (approximately)
+-- Dumping data for table db_silanis.access: ~16 rows (approximately)
 /*!40000 ALTER TABLE `access` DISABLE KEYS */;
 INSERT INTO `access` (`access_id`, `group_id`, `menu_id`, `created_by`, `created_time`) VALUES
 	(11, 3, 1, 'administrator', '2018-04-07 09:33:07'),
@@ -48,7 +48,7 @@ CREATE TABLE IF NOT EXISTS `groups` (
   `name` varchar(20) NOT NULL,
   `description` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- Dumping data for table db_silanis.groups: ~3 rows (approximately)
 /*!40000 ALTER TABLE `groups` DISABLE KEYS */;
@@ -77,7 +77,7 @@ CREATE TABLE IF NOT EXISTS `list_menu` (
   UNIQUE KEY `menu_name` (`menu_name`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
--- Dumping data for table db_silanis.list_menu: ~6 rows (approximately)
+-- Dumping data for table db_silanis.list_menu: ~8 rows (approximately)
 /*!40000 ALTER TABLE `list_menu` DISABLE KEYS */;
 INSERT INTO `list_menu` (`menu_id`, `menu_name`, `menu_desc`, `url`, `icon_name`, `status`, `menu_order`, `parent_id`, `ashead`, `created_by`, `created_time`, `modified_by`, `modified_time`) VALUES
 	(1, 'management', 'Management', '#', 'fa fa-sitemap', 1, 1, 0, 1, 'admin', '2018-04-04 10:11:47', 'administrator', '2018-07-01 18:39:37'),
@@ -99,14 +99,8 @@ CREATE TABLE IF NOT EXISTS `login_attempts` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
--- Dumping data for table db_silanis.login_attempts: ~5 rows (approximately)
+-- Dumping data for table db_silanis.login_attempts: ~0 rows (approximately)
 /*!40000 ALTER TABLE `login_attempts` DISABLE KEYS */;
-INSERT INTO `login_attempts` (`id`, `ip_address`, `login`, `time`) VALUES
-	(4, '::1', 'admin', 1530373337),
-	(5, '::1', 'admin', 1530373352),
-	(6, '::1', 'admin', 1530373357),
-	(8, '::1', 'admin@admin.com', 1530427081),
-	(9, '::1', 'admin@admin.com', 1530427145);
 /*!40000 ALTER TABLE `login_attempts` ENABLE KEYS */;
 
 -- Dumping structure for table db_silanis.users
@@ -134,15 +128,16 @@ CREATE TABLE IF NOT EXISTS `users` (
   `nip` varchar(20) NOT NULL,
   `nrk` varchar(20) NOT NULL,
   `lokasi` varchar(50) NOT NULL,
+  `status_kepegawaian` varchar(10) NOT NULL COMMENT 'PNS, NON PNS',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
--- Dumping data for table db_silanis.users: ~5 rows (approximately)
+-- Dumping data for table db_silanis.users: ~3 rows (approximately)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` (`id`, `ip_address`, `username`, `password`, `salt`, `email`, `activation_code`, `forgotten_password_code`, `forgotten_password_time`, `remember_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`, `full_name`, `company`, `phone`, `foto`, `foto_ttd`, `nip`, `nrk`, `lokasi`) VALUES
-	(1, '127.0.0.1', 'administrator', '$2y$08$O3aWEdDD5l1f6V.Xa2b7c.H8DnaPMDzrOeFm8v1ZDw1zonBWkzGr.', '', 'admin@admin.com', '', '2zwwe-wLi0LmWR0NAaNzGu3b42e25090ef40589a', 1521082658, NULL, 1268889823, 1530446654, 1, 'Admin', 'Admin1', 'Admin Full', 'ADMIN', '0', '', '', '', '', ''),
-	(2, '::1', 'a@b.com', '$2y$08$Y5XnPqpmhZxJriuP8qcD4.oUQRyvHk.wgfpQZZusXfBrmf0XMSTcC', NULL, 'a@b.com', NULL, NULL, NULL, NULL, 1521537014, 1523073800, 1, 'a', 'member1', '', '-', '0091', '', '', '123', '12', '22'),
-	(7, '::1', 'albi', '$2y$08$/nHPxYpwndRW0ERqMvd5s.cs6v8hyBGLpZjMNxZUAzZwC6h33NAEG', NULL, 'test@sdfd.com', NULL, NULL, NULL, NULL, 1530445832, 1530446632, 1, 'Albi', 'Albani', 'Ahmad Fadhilah', '', '123456', '', '', '123456', '12345', 'PG');
+INSERT INTO `users` (`id`, `ip_address`, `username`, `password`, `salt`, `email`, `activation_code`, `forgotten_password_code`, `forgotten_password_time`, `remember_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`, `full_name`, `company`, `phone`, `foto`, `foto_ttd`, `nip`, `nrk`, `lokasi`, `status_kepegawaian`) VALUES
+	(1, '127.0.0.1', 'administrator', '$2y$08$O3aWEdDD5l1f6V.Xa2b7c.H8DnaPMDzrOeFm8v1ZDw1zonBWkzGr.', '', 'admin@admin.com', '', '2zwwe-wLi0LmWR0NAaNzGu3b42e25090ef40589a', 1521082658, NULL, 1268889823, 1531095307, 1, 'Admin', 'Admin1', 'Admin Full', 'ADMIN', '0', '', '', '', '', '', ''),
+	(2, '::1', 'a@b.com', '$2y$08$Y5XnPqpmhZxJriuP8qcD4.oUQRyvHk.wgfpQZZusXfBrmf0XMSTcC', NULL, 'a@b.com', NULL, NULL, NULL, NULL, 1521537014, 1523073800, 1, 'a', 'member1', '', '-', '0091', '', '', '123', '12', '22', ''),
+	(7, '::1', 'albi', '$2y$08$/nHPxYpwndRW0ERqMvd5s.cs6v8hyBGLpZjMNxZUAzZwC6h33NAEG', NULL, 'test@sdfd.com', NULL, NULL, NULL, NULL, 1530445832, 1530446632, 1, 'Albi', 'Albani', 'Ahmad Fadhilah', '', '123456', '', '', '123456', '12345', 'PG', '');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
 -- Dumping structure for table db_silanis.users_groups
@@ -156,9 +151,9 @@ CREATE TABLE IF NOT EXISTS `users_groups` (
   KEY `fk_users_groups_groups1_idx` (`group_id`),
   CONSTRAINT `fk_users_groups_groups1` FOREIGN KEY (`group_id`) REFERENCES `groups` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
   CONSTRAINT `fk_users_groups_users1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8;
 
--- Dumping data for table db_silanis.users_groups: ~4 rows (approximately)
+-- Dumping data for table db_silanis.users_groups: ~3 rows (approximately)
 /*!40000 ALTER TABLE `users_groups` DISABLE KEYS */;
 INSERT INTO `users_groups` (`id`, `user_id`, `group_id`) VALUES
 	(36, 1, 1),
