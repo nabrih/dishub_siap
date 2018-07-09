@@ -495,8 +495,8 @@ class Auth extends CI_Controller
 		$this->data['identity_column'] = $identity_column;
 
 		// validate form input
-		$this->form_validation->set_rules('first_name', $this->lang->line('create_user_validation_fname_label'), 'trim|required');
-		$this->form_validation->set_rules('last_name', $this->lang->line('create_user_validation_lname_label'), 'trim|required');
+		// $this->form_validation->set_rules('first_name', $this->lang->line('create_user_validation_fname_label'), 'trim|required');
+		// $this->form_validation->set_rules('last_name', $this->lang->line('create_user_validation_lname_label'), 'trim|required');
 		$this->form_validation->set_rules('full_name', "Full name harus diisi", 'trim|required');
 		if ($identity_column !== 'email')
 		{
@@ -605,6 +605,15 @@ class Auth extends CI_Controller
 				'class' => 'form-control',
 				'style' => 'width: 175px;'
 			);
+			$this->data['status_kepegawaian'] = array(
+				'name' => 'status_kepegawaian',
+				'id' => 'status_kepegawaian',
+				'selected' => $this->form_validation->set_value('status_kepegawaian'),
+				'options' => array('PNS' => 'PNS', 'NON PNS' => 'NON PNS'),
+				'class' => 'form-control',
+				'style' => 'width: 175px;'
+			);
+
 			// additional end
 			$this->data['phone'] = array(
 				'name' => 'phone',
@@ -650,8 +659,8 @@ class Auth extends CI_Controller
 		$currentGroups = $this->ion_auth->get_users_groups($id)->result();
 
 		// validate form input
-		$this->form_validation->set_rules('first_name', $this->lang->line('edit_user_validation_fname_label'), 'trim|required');
-		$this->form_validation->set_rules('last_name', $this->lang->line('edit_user_validation_lname_label'), 'trim|required');
+		// $this->form_validation->set_rules('first_name', $this->lang->line('edit_user_validation_fname_label'), 'trim|required');
+		// $this->form_validation->set_rules('last_name', $this->lang->line('edit_user_validation_lname_label'), 'trim|required');
 		$this->form_validation->set_rules('phone', $this->lang->line('edit_user_validation_phone_label'), 'trim|required');
 		$this->form_validation->set_rules('company', $this->lang->line('edit_user_validation_company_label'), 'trim');
 		// additional

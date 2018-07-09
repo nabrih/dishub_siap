@@ -9,12 +9,12 @@
 
     <?php echo form_open(uri_string());?>
 
-          <p>
+          <p class="hidden">
                 <?php echo lang('edit_user_fname_label', 'first_name');?> <br />
                 <?php echo form_input($first_name);?>
           </p>
 
-          <p>
+          <p class="hidden">
                 <?php echo lang('edit_user_lname_label', 'last_name');?> <br />
                 <?php echo form_input($last_name);?>
           </p>

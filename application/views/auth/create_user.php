@@ -6,12 +6,12 @@
   <p><?php echo lang('create_user_subheading');?></p>
   <?php echo form_open("auth/create_user");?>
 
-        <p>
+        <p class="hidden">
               <?php echo lang('create_user_fname_label', 'first_name');?> <br />
               <?php echo form_input($first_name);?>
         </p>
 
-        <p>
+        <p class="hidden">
               <?php echo lang('create_user_lname_label', 'last_name');?> <br />
               <?php echo form_input($last_name);?>
         </p>
@@ -49,13 +49,11 @@
         <p>
               <label for="lokasi">Lokasi</label> <br />
               <?php echo form_dropdown($lokasi);?>
-              <!-- <select name="lokasi" id="lokasi" class="form-control" style="width: 175px;">
-                <option value="PG" selected="selected">PULO GADUNG</option>
-                <option value="UM">UJUNG MENTENG</option>
-                <option value="CL">CILINCING</option>
-                <option value="KA">KEDAUNG ANGKE</option>
-              </select> -->
+        </p>
 
+        <p>
+              <label for="telepon">Status Kepegawaian</label> <br />
+              <?php echo form_dropdown($status_kepegawaian);?>
         </p>
         <!-- additional end-->
 
@@ -80,7 +78,7 @@
         </p>
 
 
-        <p><?php echo form_submit('submit', lang('create_user_submit_btn'));?></p>
+        <p><?php echo form_submit('submit', lang('create_user_submit_btn'), 'class="btn btn-info"');?></p>
 
   <?php echo form_close();?>
   </div>
